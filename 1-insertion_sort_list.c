@@ -12,35 +12,30 @@
 void insertion_sort_list(listint_t **list) {
 
 	listint_t *curr = *list;
-	int tmp;
-	listint_t *temp_prev;
-	listint_t *temp_next;
+	listint_t *temp = curr->next;
 
 	if (*list == NULL)
 		return;
 
 	while (curr != NULL) {
 		if (curr->next != NULL && curr->next->n < curr->n){
-			tmp = curr->n;
-			curr->n = curr->next->n;
-			curr->next->n = tmp;
+			temp = curr->next;
 
-			temp_prev = curr->prev;
-			temp_next = curr->next;
-			if (temp_prev != NULL){
-				temp_prev->next = curr->next;
+			curr->next = temp->next;
+
+			if (temp->next != NULL){
+				temp->next->prev = curr;
 			}
-			else{
-				*list = curr->next;
-			}
-			curr->next->prev = temp_prev;
-			curr->next->next = curr;
-			curr->prev = curr->next;
-			curr->next = temp_next;
-			
-			if (temp_next != NULL){
-                                temp_next->prev = curr;
+			temp->prev = curr->prev;
+
+			if (curr->prev != NULL){
+                                curr->prev->next = temp;
                         }
+			else{
+				*list = temp;
+			}
+			temp->next = curr;
+			curr->prev = temp;
 		}
 		print_list(*list);
                 curr = curr->next;
