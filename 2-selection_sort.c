@@ -4,22 +4,25 @@
 #include<limits.h>
 
 /**
- * selection_sort - sorts an array of integers in ascending order using the Selection sort algorithm
+ * selection_sort - sorts an array of integers in ascending
+ * order using the Selection sort algorithm
  * @array: an unsorted array of integers
  * @size: The size of the array
- * Description: Returns a sorted array of ints 
+ * Description: Returns a sorted array of ints
  */
-void selection_sort(int *array, size_t size) {
-	
+void selection_sort(int *array, size_t size)
+{
 	int temp;
 	size_t i, j, min_index;
   /* Base case: empty or single-element array */
 	if (size <= 1)
 		return;
 
-	for (i = 0; i < size - 1; ++i) {
+	for (i = 0; i < size - 1; ++i)
+	{
 		min_index = i;
-		for (j = i + 1; j < size; ++j) {
+		for (j = i + 1; j < size; ++j)
+		{
 			if (array[j] < array[min_index])
 				min_index = j;
 		}
