@@ -31,7 +31,7 @@ void insertion_sort_list(listint_t **list) {
 			if (curr->prev != NULL){
                                 curr->prev->next = temp;
                         }
-			else{
+			else{         /*MuST ADD DO-WHILE SEGMENT PLUS BOOLEAN FOR SORTEDNESS*/
 				*list = temp;
 			}
 			temp->next = curr;
