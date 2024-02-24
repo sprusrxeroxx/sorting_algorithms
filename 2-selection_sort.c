@@ -28,7 +28,6 @@ void selection_sort(int *array, size_t size)
 			{
 				min_index = j;
 			}
-				
 		}
 		if (i != min_index)
 		{
