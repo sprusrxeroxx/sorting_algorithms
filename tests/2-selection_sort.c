@@ -2,7 +2,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<limits.h>
-#include<stdbool.h>
 
 /**
  * selection_sort - sorts an array of integers in ascending
